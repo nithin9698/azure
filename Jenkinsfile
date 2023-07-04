@@ -8,8 +8,8 @@ def getFtpPublishProfile(def publishProfilesJson) {
 }
 
 node {
-  withEnv(['AZURE_SUBSCRIPTION_ID=<subscription_id>',
-        'AZURE_TENANT_ID=<tenant_id>']) {
+  withEnv(['AZURE_SUBSCRIPTION_ID=d8243891-51bd-418b-a3e4-a2ec74baca95',
+        'AZURE_TENANT_ID=1fb45707-df96-4026-9976-47d8a53b877d']) {
     stage('init') {
       checkout scm
     }
@@ -19,13 +19,13 @@ node {
     }
   
     stage('deploy') {
-      def resourceGroup = '<resource_group>'
-      def webAppName = '<app_name>'
+      def resourceGroup = 'NetworkWatcherRG'
+      def webAppName = 'shop1'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: '<service_princial>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+      withCredentials([usernamePassword(credentialsId: 'nithin9698', passwordVariable: 'c0719d96-bc2e-4a1b-994e-0e18bc8abf97', usernameVariable: '116bd714-07d5-4c91-8fd0-d7bcfbbf28c2')]) {
        sh '''
-          az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
-          az account set -s $AZURE_SUBSCRIPTION_ID
+          az login --service-principal -u $116bd714-07d5-4c91-8fd0-d7bcfbbf28c2 -p c0719d96-bc2e-4a1b-994e-0e18bc8abf97 -t 1fb45707-df96-4026-9976-47d8a53b877d
+          az account set -s $d8243891-51bd-418b-a3e4-a2ec74baca95
         '''
       }
       // get publish settings
