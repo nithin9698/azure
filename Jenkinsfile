@@ -24,8 +24,8 @@ node {
       // login Azure
       withCredentials([usernamePassword(credentialsId: 'nithin9698', passwordVariable: 'c0719d96-bc2e-4a1b-994e-0e18bc8abf97', usernameVariable: '116bd714-07d5-4c91-8fd0-d7bcfbbf28c2')]) {
        sh '''
-          az login --service-principal -u $116bd714-07d5-4c91-8fd0-d7bcfbbf28c2 -p c0719d96-bc2e-4a1b-994e-0e18bc8abf97 -t 1fb45707-df96-4026-9976-47d8a53b877d
-          az account set -s $d8243891-51bd-418b-a3e4-a2ec74baca95
+          az login --service-principal -u 116bd714-07d5-4c91-8fd0-d7bcfbbf28c2 -p c0719d96-bc2e-4a1b-994e-0e18bc8abf97 -t 1fb45707-df96-4026-9976-47d8a53b877d
+          az account set -s d8243891-51bd-418b-a3e4-a2ec74baca95
         '''
       }
       // get publish settings
